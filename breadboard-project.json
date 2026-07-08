@@ -1,0 +1,394 @@
+{
+  "format": "velxio-project",
+  "version": 1,
+  "boards": [
+    {
+      "id": "arduino-uno",
+      "boardKind": "arduino-uno",
+      "x": -200.90245424576742,
+      "y": 75.95823806840619,
+      "activeFileGroupId": "group-arduino-uno",
+      "languageMode": "arduino",
+      "serialBaudRate": 0
+    }
+  ],
+  "fileGroups": {
+    "group-arduino-uno": [
+      {
+        "name": "sketch.ino",
+        "content": "const int LED_PIN = 3;\nconst int BUTTON_PIN = 2;\nconst int POT_PIN - A0;\n\nbool ledOn = false;\n\nint lastButtonReading = HIGH;\nunsigned long lastDebounceTime = 0;\nconst unsigned long debounceDelay = 50;\n\nvoid setup () {\n\n  pinMode(LED_PIN, OUTPUT);\n\n  pinMode(BUTTON_PIN, INPUT_PULLUP);\n\n}\n\nvoid loop () {\n\n  int reading = digitalRead(BUTTON_PIN);\n\n  if (reading !=lastButtonReading) {\n    lastDebounceTime = millis();\n  \n  }\n\n  if ((millis()-lastDebounceTime) > debounceDelay) {\n    static int buttonState = HIGH;\n    if (buttonState == LOW) {\n      ledOn = !ledOn\n    }\n  }\n}\n \n\nlastButtonReading = reading;\n\nif (ledOn) {\n  int potValue = analogRead(POT_PIN);\n  int brightness = map(potValue, 0, 1023, 0, 255);\n  analogWrite(LED_PIN, brightness);\n}\n\nelse {\n  analogWrite(LED_PIN, 0);\n  \n}\n\n\n"
+      }
+    ]
+  },
+  "components": [
+    {
+      "id": "led_red_1783549112479_u4eublwkc",
+      "metadataId": "led-red",
+      "x": 128.13249295263236,
+      "y": 167.4920559466832,
+      "properties": {
+        "color": "red",
+        "rotation": 180
+      },
+      "attachedTo": {
+        "breadboardId": "breadboard_full_1783548848148_4n0qaucvz",
+        "pinMap": {
+          "A": "G7",
+          "C": "G8"
+        }
+      }
+    },
+    {
+      "id": "resistor_220_1783549342304_0hdu1bxkk",
+      "metadataId": "resistor-220",
+      "x": 57.13249295263236,
+      "y": 196.1420559466832,
+      "properties": {
+        "value": "220",
+        "rotation": 180
+      },
+      "attachedTo": {
+        "breadboardId": "breadboard_full_1783548848148_4n0qaucvz",
+        "pinMap": {
+          "1": "I7",
+          "2": "I1"
+        }
+      }
+    },
+    {
+      "id": "potentiometer_1783549565649_7cedws0jx",
+      "metadataId": "potentiometer",
+      "x": 235.1324929526324,
+      "y": 128.9920559466832,
+      "properties": {
+        "min": 0,
+        "max": 1023,
+        "value": 0,
+        "step": 1,
+        "startDegree": -135,
+        "endDegree": 135
+      },
+      "attachedTo": {
+        "breadboardId": "breadboard_full_1783548848148_4n0qaucvz",
+        "pinMap": {
+          "GND": "F16",
+          "SIG": "F17",
+          "VCC": "F18"
+        }
+      }
+    },
+    {
+      "id": "pushbutton_1783550052559_tdidt2w7u",
+      "metadataId": "pushbutton",
+      "x": 303.13249295263245,
+      "y": 165.4920559466832,
+      "properties": {
+        "color": "red",
+        "pressed": false,
+        "label": "",
+        "xray": false
+      },
+      "attachedTo": {
+        "breadboardId": "breadboard_full_1783548848148_4n0qaucvz",
+        "pinMap": {
+          "2.l": "F20",
+          "2.r": "F27"
+        }
+      }
+    },
+    {
+      "id": "breadboard_full_1783548848148_4n0qaucvz",
+      "metadataId": "breadboard-full",
+      "x": 95.53249295263237,
+      "y": 72.4920559466832,
+      "properties": {}
+    }
+  ],
+  "wires": [
+    {
+      "waypoints": [
+        {
+          "x": 263.28226441998777,
+          "y": 355.356328700303
+        },
+        {
+          "x": 7.097545754232584,
+          "y": 355.356328700303
+        }
+      ],
+      "id": "wire-1783549708613",
+      "start": {
+        "componentId": "potentiometer_1783549565649_7cedws0jx",
+        "pinName": "SIG",
+        "x": 280.1324929526324,
+        "y": 203.4920559466832
+      },
+      "end": {
+        "componentId": "arduino-uno",
+        "pinName": "A0",
+        "x": 7.097545754232584,
+        "y": 267.4582380684062
+      },
+      "color": "#22c55e"
+    },
+    {
+      "waypoints": [
+        {
+          "x": -20.62771314687868,
+          "y": 325.8518912999913
+        },
+        {
+          "x": 130.5766608579551,
+          "y": 328.98891150756043
+        }
+      ],
+      "id": "wire-1783548893052",
+      "start": {
+        "componentId": "arduino-uno",
+        "pinName": "GND.3",
+        "x": -21.902454245767416,
+        "y": 267.4582380684062
+      },
+      "end": {
+        "componentId": "breadboard_full_1783548848148_4n0qaucvz",
+        "pinName": "BN1",
+        "x": 126.53249295263237,
+        "y": 279.4920559466832
+      },
+      "color": "#000000"
+    },
+    {
+      "waypoints": [
+        {
+          "x": -35.05800610169684,
+          "y": 344.04660850389246
+        },
+        {
+          "x": 140.6151255221764,
+          "y": 344.67401254540624
+        }
+      ],
+      "id": "wire-1783549010578",
+      "start": {
+        "componentId": "arduino-uno",
+        "pinName": "5V",
+        "x": -40.902454245767416,
+        "y": 267.4582380684062
+      },
+      "end": {
+        "componentId": "breadboard_full_1783548848148_4n0qaucvz",
+        "pinName": "BP2",
+        "x": 136.13249295263236,
+        "y": 266.4920559466832
+      },
+      "color": "#cc0000"
+    },
+    {
+      "waypoints": [
+        {
+          "x": -50.353544835465414,
+          "y": 308.30767796826
+        },
+        {
+          "x": -238.6595603670866,
+          "y": 293.67249541398894
+        },
+        {
+          "x": -251.3433852474549,
+          "y": 49.75278617613763
+        },
+        {
+          "x": 123.31728814188472,
+          "y": 39.020318969672175
+        }
+      ],
+      "id": "wire-1783549053008",
+      "start": {
+        "componentId": "arduino-uno",
+        "pinName": "3.3V",
+        "x": -50.902454245767416,
+        "y": 267.4582380684062
+      },
+      "end": {
+        "componentId": "breadboard_full_1783548848148_4n0qaucvz",
+        "pinName": "TP1",
+        "x": 126.53249295263237,
+        "y": 95.4920559466832
+      },
+      "color": "#cc0000"
+    },
+    {
+      "waypoints": [
+        {
+          "x": -85.90070989690177,
+          "y": 58.789446792484526
+        },
+        {
+          "x": 97.47648259673711,
+          "y": 63.9550015106152
+        },
+        {
+          "x": 95.75463102402689,
+          "y": 111.30591976014637
+        }
+      ],
+      "id": "wire-1783549102943",
+      "start": {
+        "componentId": "arduino-uno",
+        "pinName": "GND.1",
+        "x": -85.40245424576742,
+        "y": 84.95823806840619
+      },
+      "end": {
+        "componentId": "breadboard_full_1783548848148_4n0qaucvz",
+        "pinName": "TN1",
+        "x": 126.53249295263237,
+        "y": 108.4920559466832
+      },
+      "color": "#000000"
+    },
+    {
+      "waypoints": [],
+      "id": "wire-1783549602196",
+      "start": {
+        "componentId": "potentiometer_1783549565649_7cedws0jx",
+        "pinName": "GND",
+        "x": 270.1324929526324,
+        "y": 203.4920559466832
+      },
+      "end": {
+        "componentId": "breadboard_full_1783548848148_4n0qaucvz",
+        "pinName": "BN14",
+        "x": 251.33249295263238,
+        "y": 279.4920559466832
+      },
+      "color": "#000000"
+    },
+    {
+      "waypoints": [],
+      "id": "wire-1783549624398",
+      "start": {
+        "componentId": "potentiometer_1783549565649_7cedws0jx",
+        "pinName": "VCC",
+        "x": 290.1324929526324,
+        "y": 203.4920559466832
+      },
+      "end": {
+        "componentId": "breadboard_full_1783548848148_4n0qaucvz",
+        "pinName": "BP17",
+        "x": 280.13249295263233,
+        "y": 266.4920559466832
+      },
+      "color": "#cc0000"
+    },
+    {
+      "waypoints": [
+        {
+          "x": 208.45867905649425,
+          "y": 276.8089269210822
+        },
+        {
+          "x": 208.45867905649425,
+          "y": 200.80892692108222
+        }
+      ],
+      "id": "wire-1783550218273",
+      "start": {
+        "componentId": "breadboard_full_1783548848148_4n0qaucvz",
+        "pinName": "BN10",
+        "x": 212.93249295263234,
+        "y": 279.4920559466832
+      },
+      "end": {
+        "componentId": "breadboard_full_1783548848148_4n0qaucvz",
+        "pinName": "F8",
+        "x": 193.73249295263236,
+        "y": 203.4920559466832
+      },
+      "color": "#22c55e"
+    },
+    {
+      "waypoints": [
+        {
+          "x": 21.869054612377916,
+          "y": 84.95823806840619
+        },
+        {
+          "x": 21.869054612377916,
+          "y": 66.58637242820377
+        },
+        {
+          "x": 85.76186540687836,
+          "y": 66.58637242820377
+        },
+        {
+          "x": 85.76186540687836,
+          "y": 244.69465030667845
+        },
+        {
+          "x": 126.53249295263237,
+          "y": 244.69465030667845
+        }
+      ],
+      "id": "wire-1783550260578",
+      "start": {
+        "componentId": "arduino-uno",
+        "pinName": "3",
+        "x": 26.097545754232584,
+        "y": 84.95823806840619
+      },
+      "end": {
+        "componentId": "breadboard_full_1783548848148_4n0qaucvz",
+        "pinName": "J1",
+        "x": 126.53249295263237,
+        "y": 243.4920559466832
+      },
+      "color": "#22c55e"
+    },
+    {
+      "waypoints": [
+        {
+          "x": 35.683527742752304,
+          "y": 61.30210958854062
+        },
+        {
+          "x": 381.2198693059307,
+          "y": 66.18848209549466
+        }
+      ],
+      "id": "wire-1783550371583",
+      "start": {
+        "componentId": "arduino-uno",
+        "pinName": "2",
+        "x": 35.597545754232584,
+        "y": 84.95823806840619
+      },
+      "end": {
+        "componentId": "pushbutton_1783550052559_tdidt2w7u",
+        "pinName": "1.r",
+        "x": 376.13249295263245,
+        "y": 184.4920559466832
+      },
+      "color": "#22c55e"
+    },
+    {
+      "waypoints": [],
+      "id": "wire-1783552363601",
+      "start": {
+        "componentId": "pushbutton_1783550052559_tdidt2w7u",
+        "pinName": "2.l",
+        "x": 309.13249295263245,
+        "y": 203.4920559466832
+      },
+      "end": {
+        "componentId": "breadboard_full_1783548848148_4n0qaucvz",
+        "pinName": "F19",
+        "x": 299.3324929526324,
+        "y": 203.4920559466832
+      },
+      "color": "#22c55e"
+    }
+  ],
+  "activeBoardId": "arduino-uno",
+  "ignoreStock": false
+}
