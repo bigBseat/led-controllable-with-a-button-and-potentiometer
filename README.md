@@ -4,11 +4,19 @@
 
 
 
-An LED you can control using a potentiometer and button
-
 
 > Built in [Breadboard](https://breadboard.hackclub.com), a Hack Club program. This project took ~1 hours of work.
 
+
+
+## What It Does
+
+An LED you can control using a potentiometer and button
+
+
+## How It Works
+
+The circuit is captured in `breadboard-project.json`, and the firmware that runs it is in the `firmware/` folder.
 
 
 ## How To Use It
@@ -18,7 +26,8 @@ twist knob and push button
 
 ## Demo
 
-- **Try it:** [https://breadboard.hackclub.com/share/86](https://breadboard.hackclub.com/share/86)
+- **Simulate it live:** [https://breadboard.hackclub.com/share/86](https://breadboard.hackclub.com/share/86), runs the firmware in the Breadboard simulator
+- **View the design:** [https://taniwankenobi.github.io/breadboard-plays/p/86/](https://taniwankenobi.github.io/breadboard-plays/p/86/)
 
 
 ## Schematic
